@@ -6,6 +6,8 @@ Go test.
 Check an example of [local](./example/local) and [remote](./example/remote)
 tests.
 
+Requires Go installed on the host.
+
 ## Why?
 
 Sometimes it's useful to compile a test binary for a different platform
@@ -15,3 +17,7 @@ isolated environment (VM/Docker).
 This library provides a way to write Go test that sets up an environment,
 compiles the remote test, executes it on remote and streams sub-test
 results back to the host.
+
+## License
+
+MIT

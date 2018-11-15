@@ -14,6 +14,8 @@ import (
 	"time"
 )
 
+var debugFlag = os.Getenv("GO_TESTPROXY_DEBUG") == "true"
+
 // Replay test events from JSON stream r on the current test suite.
 func Replay(t *testing.T, r io.Reader) {
 	t.Helper()
@@ -41,7 +43,7 @@ type Runner interface {
 // Run the Go test using runner and return a JSON event stream.
 func Run(t testing.TB, r Runner) io.ReadCloser {
 	t.Helper()
-	out := run(t, r, false)
+	out := run(t, r, debugFlag)
 	return ioutil.NopCloser(out)
 }
 
